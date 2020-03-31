@@ -28,11 +28,9 @@ import scala.concurrent.duration._
 import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 
 @JSExportTopLevel("Descent")
-class Descent {
+class Descent(width: Int, height: Int) {
 
   @JSExport val stepZoom = 0.5
-  @JSExport val width = 800
-  @JSExport val height = 840
   @JSExport val innerBorder = 1.0 / 8
   @JSExport val preMagnify = 10.0 / 8.0
   @JSExport val frameDuration = (1 second).toMillis

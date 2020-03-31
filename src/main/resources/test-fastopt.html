@@ -26,12 +26,12 @@
 <body style="margin: 0px">
 
 <div>
-    <canvas style="display: block" id="canvas" width="800" height="800"/>
+    <canvas style="display: block" id="canvas" width="800" height="840"/>
 </div>
 
 <script type="text/javascript" src="../descent-animator-fastopt.js"></script>
 <script>
-    new Descent().animate(document.getElementById('canvas'),
+    new Descent(800, 840).animate(document.getElementById('canvas'),
         "http://examples.deepartist.org.s3.amazonaws.com/ZoomingRotor/694bab74-52c7-4df2-afb8-0f50b714ca41/etc/e8854e2d-8713-4423-910e-dc386f781126.jpg", // Manually Added
         "http://examples.deepartist.org.s3.amazonaws.com/ZoomingRotor/694bab74-52c7-4df2-afb8-0f50b714ca41/etc/66a1a702-f743-4392-8e50-cd407722b5b9.jpg",
         "http://examples.deepartist.org.s3.amazonaws.com/ZoomingRotor/694bab74-52c7-4df2-afb8-0f50b714ca41/etc/702579b2-b156-413e-b4cc-b1e1152f50ae.jpg",
