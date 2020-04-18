@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package example
+package com.simiacryptus.js
 
 import org.scalajs.dom
 import org.scalajs.dom.html
@@ -30,10 +30,10 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 @JSExportTopLevel("Descent")
 class Descent(width: Int, height: Int) {
 
-  @JSExport val stepZoom = 0.5
-  @JSExport val innerBorder = 1.0 / 8
-  @JSExport val preMagnify = 10.0 / 8.0
-  @JSExport val frameDuration = (1 second).toMillis
+  @JSExport var stepZoom = 0.5
+  @JSExport var innerBorder = 1.0 / 8
+  @JSExport var preMagnify = 10.0 / 8.0
+  @JSExport var frameDuration = (1 second).toMillis
 
   @JSExport
   def animate(canvas: html.Canvas, urls: String*): Unit = {
@@ -43,14 +43,12 @@ class Descent(width: Int, height: Int) {
     val frames = urls.map(src => {
       val image = dom.document.createElement(s"img").asInstanceOf[HTMLImageElement]
       image.src = src
-      println(s"Loading $src")
       val promisedElement = Promise[HTMLImageElement]()
       image.onabort = (e: dom.UIEvent) => {
         println(s"Error Loading $src - ${e.`type`}: ${e.toString}")
         promisedElement.failure(new RuntimeException(e.`type`))
       }
       image.onload = (e: dom.Event) => {
-        println("Loaded " + src)
         promisedElement.success(image)
       }
       promisedElement.future
